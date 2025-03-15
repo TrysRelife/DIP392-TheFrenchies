@@ -3,160 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathéo Ginisty - Expert en Curation Automobile</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Matéo Ginisty</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <span class="logo">🚗 Mathéo Ginisty</span>
-            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-            <div class="nav-links" id="navLinks">
-                <a href="#services">Services 📋</a>
-                <a href="#expertise">Expertise 🏆</a>
-                <a href="#benefices">Pour les Membres</a>
-                <a href="#contact">Contact 📮</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>Curation Automobile <span class="emoji">✨</span></h1>
-            <h2>Gestion sur mesure pour collections d'exception</h2>
-            <p>Expert diplômé en conservation et valorisation de véhicules</p>
-            <a href="#services" class="cta-button">Découvrir les services</a>
-        </div>
-    </section>
-
-    <section class="services-section" id="services">
-        <div class="section-header">
-            <h2>Services Clés <span class="emoji">💼</span></h2>
-            <div class="divider"></div>
-        </div>
-        <div class="service-cards">
-            <div class="service-card">
-                <div class="card-icon">📋</div>
-                <h3>Gestion Intégrale</h3>
-                <ul>
-                    <li>Inventaire détaillé (historique, documentation)</li>
-                    <li>Planification d'entretiens réguliers</li>
-                    <li>Surveillance continue des véhicules</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="card-icon">🔧</div>
-                <h3>Entretien Expert</h3>
-                <ul>
-                    <li>Nettoyage professionnel</li>
-                    <li>Stockage climatisé</li>
-                    <li>Préparation à l'usage immédiat</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="card-icon">🚚</div>
-                <h3>Logistique Sécurisée</h3>
-                <ul>
-                    <li>Transport international</li>
-                    <li>Assistance douanière</li>
-                    <li>Transporteur certifié</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="card-icon">🔍</div>
-                <h3>Conseil Stratégique</h3>
-                <ul>
-                    <li>Recherche personnalisée</li>
-                    <li>Évaluation certifiée</li>
-                    <li>Négociation experte</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="expertise-section" id="expertise">
-        <div class="section-header">
-            <h2>Expertise Confirmée <span class="emoji">🚀</span></h2>
-            <div class="divider"></div>
-        </div>
-        <div class="expertise-cards">
-            <div class="card">
-                <h3>93 Véhicules Gérés</h3>
-                <p>Porsche 993 RS, Jaguar Type E, Ferrari 488 Pista...</p>
-            </div>
-            <div class="card">
-                <h3>Expérience Pro</h3>
-                <p>Responsable Patrimoine Automobile chez Mecanicus Paris</p>
-            </div>
-            <div class="card">
-                <h3>Diplômes</h3>
-                <p>Master en Gestion de Collections Automotives</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefices" id="benefices">
-        <div class="section-header">
-            <h2>Avantages pour les Membres</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="benefice-cards">
-            <div class="benefice-card">
-                <div class="card-icon">⏳</div>
-                <h3>Sérénité</h3>
-                <p>Déléguez les contraintes logistiques</p>
-            </div>
-            <div class="benefice-card">
-                <div class="card-icon">💰</div>
-                <h3>Valorisation</h3>
-                <p>Préservation de la valeur patrimoniale</p>
-            </div>
-            <div class="benefice-card">
-                <div class="card-icon">👥</div>
-                <h3>Réseau Expert</h3>
-                <p>Accès à des ateliers certifiés</p>
-            </div>
-            <div class="benefice-card">
-                <div class="card-icon">🔒</div>
-                <h3>Confidentialité</h3>
-                <p>Gestion discrète des collections</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer" id="contact">
-        <div class="contact-container">
-            <h3>Contactez-moi</h3>
-            <div class="contact-info">
-                <div class="emoji">📧</div>
-                <a href="mailto:mateoginisty@hotmail.com">mateoginisty@hotmail.com</a>
-            </div>
-            <div class="contact-info">
-                <div class="emoji">📞</div>
-                <a href="tel:+33616905461">+33 6 16 90 54 61</a>
-            </div>
-            <div class="contact-desc">
-                <p>Disponible pour une consultation personnalisée</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Menu hamburger
-        function toggleMenu() {
-            const menu = document.getElementById('navLinks');
-            menu.classList.toggle('show');
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <div class="background-image"></div>
+    <div class="content">
+        <div class="logo">MATÉO GINISTY</div>
+        <h1>Votre collection,<br>mon expertise.<br>
+            <span class="subtitle">Profitez, je m'occupe du reste.</span>
+        </h1>
+        <a href="#" class="cta-button">En savoir plus</a>
+    </div>
 </body>
 </html>
