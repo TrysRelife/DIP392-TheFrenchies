@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    overflow: auto; /* Permet le scroll */
+    background: #0a0a0a;
+  }
+  
+  /* Fond initial pour section.html */
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+  }
+  .background-image2, .background-image3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s cubic-bezier(0.5, 0.5, 0.5, 0.5);
+    filter: brightness(0.6); /* Réduction du assombrissement */
+    z-index: -2;
+  }
+  
+  .background-image2 {
+    background-image: url('assets/section1.jpg');
+    opacity: 1;
+  }
+  
+  .background-image3 {
+    background-image: url('assets/section2.jpg');
+    opacity: 0;
+    transform: translateY(20px); /* Léger décalage initial */
+  }
+  
+  .background-overlay {
+    background: linear-gradient(to bottom, 
+      rgba(0,0,0,0.4) 0%,
+      rgba(0,0,0,0.2) 50%,
+      rgba(0,0,0,0.4) 100%); /* Overlay plus léger */
+  }
+
+.glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: auto;
+      color: inherit;
+    }
+    /* Centrage amélioré des sections */
+    .full-screen-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    /* Style et animation pour les points de la liste des services */
+    .services-list li {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s forwards;
+      position: relative;
+      list-style: none;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-weight: 300;
+    }
+    .services-list li::before {
+      content: "●";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    /* Délai progressif pour chaque point */
+    .services-list li:nth-child(1) { animation-delay: 0.4s; }
+    .services-list li:nth-child(2) { animation-delay: 0.6s; }
+    .services-list li:nth-child(3) { animation-delay: 0.8s; }
+    .services-list li:nth-child(4) { animation-delay: 1s; }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  
+  
+  
+  /* Contenu général */
+  .content {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  /* Logo */
+  .logo {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    opacity: 0;
+    animation: slideIn 1s ease-out 0.3s forwards;
+    z-index: 10;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  
+  /* Sections pleine page */
+  .full-screen-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Titres et textes */
+  .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+  .section-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  /* Bouton CTA */
+  .cta-button {
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textAppear 1s ease-out 1.2s forwards;
+  }
+  .cta-button:hover {
+    background: white;
+    color: black;
+    border-color: white;
+  }
+  @keyframes textAppear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    .section-text {
+      font-size: 1rem;
+    }
+    .cta-button {
+      padding: 12px 30px;
+      font-size: 1rem;
+    }
+  }
+  
