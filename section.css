@@ -236,7 +236,6 @@ h2 {
   }
 }
 
-/* Ajoutez ces styles pour l'effet de survol premium */
 .cta-button::before {
   content: '';
   position: absolute;
