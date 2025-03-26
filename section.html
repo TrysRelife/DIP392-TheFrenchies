@@ -1,89 +1,297 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matéo Ginisty - En savoir plus</title>
-  <link rel="stylesheet" href="section.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matéo Ginisty - Mon Approche & Services</title>
+    <link rel="stylesheet" href="section.css">
 </head>
 <body>
-  <div class="sticky-header">
-    <a href="index.html" class="sticky-logo">MATÉO GINISTY</a>
-  </div>
-  
-  <div class="background-image2"></div>
-  <div class="background-image3"></div>
-  
-  <div class="content">
-    <section class="section">
-      <div class="glass">
-        <h2>Mon approche</h2>
-        <p>Mon objectif est de vous offrir une expérience unique, où chaque détail est soigneusement pris en compte pour maximiser la valeur et l'impact de votre collection.</p>
-      </div>
-    </section>
+    <!-- Header Fixe -->
+    <header class="sticky-header">
+        <a href="index.html" class="sticky-logo">MATÉO GINISTY</a>
+    </header>
 
-    <section class="section" id="services">
-      <div class="glass">
-        <h2>Mes services</h2>
-        <ul class="services-list">
-          <li>
-            🔧 <strong>Gestion complète</strong><br>
-            Suivi individualisé - Entretien programmé - Documentation clés en main
-          </li>
-          <li>
-            🎨 <strong>Restauration experte</strong><br>
-            Artisans sélectionnés - Transparence totale - Respect budget/délais
-          </li>
-          <li>
-            🚛 <strong>Logistique premium</strong><br>
-            Transport sécurisé - Douanes & assurance inclus - Service mondial
-          </li>
-          <li>
-            💼 <strong>Transactions stratégiques</strong><br>
-            Analyse de marché - Négociation sur-mesure - Audit juridique
-          </li>
-        </ul>
-      </div>
-    </section>
-    <div class="buttons-container">
-      <a target="_blank" href="https://www.linkedin.com/in/mat%C3%A9o-ginisty-b3325287/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="cta-button">Contact</a>
-    </div>
-  </div>
+    <!-- Fonds d'écran fixes pour l'effet de transition -->
+    <div class="background-image2"></div>
+    <div class="background-image3"></div>
 
-  
+    <!-- Contenu Principal -->
+    <main class="content">
 
-  <footer class="sticky-footer">
-    <div class="footer-content">
-      MATÉO GINISTY / <a href="tel:+33123456789">+33 1 23 45 67 89</a>
-    </div>
-  </footer>
+        <!-- Section Approche -->
+        <section class="section" id="approach">
+            <div class="glass">
+                <h2>Mon approche</h2>
+                <p>En tant qu'expert indépendant, mon rôle est unique : je suis votre unique point de contact pour la gestion complète de votre collection de véhicules d'exception. Je coordonne personnellement un réseau trié sur le volet des meilleurs spécialistes (artisans, mécaniciens, logisticiens) pour garantir un entretien et une valorisation optimale de chaque pièce, en toute discrétion et avec une exigence absolue.</p>
+            </div>
+        </section>
 
-  <script>
-    // Gestion du changement de background
-    const stickyHeader = document.querySelector('.sticky-header');
-    window.addEventListener('scroll', () => {
-      stickyHeader.classList.toggle('scrolled', window.scrollY > 100);
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-      const servicesSection = document.getElementById('services');
-      const bgImage2 = document.querySelector('.background-image2');
-      const bgImage3 = document.querySelector('.background-image3');
-  
-      function updateBackground() {
-        const sectionTop = servicesSection.offsetTop;
-        const scrollPosition = window.pageYOffset + window.innerHeight * 0.3;
-        const progress = Math.min(1, Math.max(0, 
-          (scrollPosition - sectionTop) / (window.innerHeight * 0.4)));
-        
-        bgImage3.style.opacity = progress;
-        bgImage2.style.opacity = 1 - (progress * 0.9);
-      }
-  
-      window.addEventListener('scroll', function() {
-        requestAnimationFrame(updateBackground);
-      });
-      updateBackground();
-    });
-  </script>
+        <!-- Section Services -->
+        <section class="section" id="services">
+            <div class="glass">
+                <h2>Mes services sur-mesure</h2>
+                <ul class="services-list">
+                    <li>
+                        <strong>Gestion complète & Suivi individualisé</strong><br>
+                        Coordination totale, entretien programmé selon les spécificités de chaque véhicule, documentation et historique centralisés, rapports réguliers.
+                    </li>
+                    <li>
+                        <strong>Entretien & Maintenance spécialisée</strong><br>
+                        Accès à mon réseau d'experts pour toutes interventions, de la maintenance courante aux réglages les plus pointus, dans le respect de l'authenticité.
+                    </li>
+                    <li>
+                        <strong>Restauration experte</strong><br>
+                        Pilotage de projets de restauration avec des artisans renommés, transparence totale sur les coûts et les délais, supervision rigoureuse de chaque étape.
+                    </li>
+                    <li>
+                        <strong>Logistique premium</strong><br>
+                        Organisation de transports sécurisés (fermés, confidentiels) nationaux et internationaux, gestion des formalités douanières et assurances spécifiques.
+                    </li>
+                     <li>
+                        <strong>Conseil stratégique (Acquisition / Vente)</strong><br>
+                        Analyse de marché, recherche de véhicules rares, accompagnement discret dans les négociations, audit pré-achat ou pré-vente.
+                    </li>
+                    <li>
+                        <strong>Stockage sécurisé haut de gamme</strong><br>
+                        Solutions de gardiennage climatisé, sécurisé (24/7), avec services de maintenance conditionnelle (charge batterie, démarrage régulier, etc.).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section Contact Form -->
+        <section class="section" id="contact">
+            <div class="glass">
+                <h2>Discutons de votre collection</h2>
+                <form id="contact-form" class="contact-form" action="#" method="POST"> <!-- Action à définir pour le backend -->
+
+                    <div class="form-group">
+                        <input type="text" id="nom" name="nom" required placeholder=" ">
+                        <label for="nom" class="float-label">Nom complet *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email" class="float-label">Adresse e-mail *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" id="telephone" name="telephone" placeholder=" ">
+                        <label for="telephone" class="float-label">Numéro de téléphone</label>
+                    </div>
+
+                    <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+
+                    <div class="form-group">
+                        <label class="static-label">Détails sur votre collection :</label>
+                        <input type="number" id="nb_vehicules" name="nb_vehicules" placeholder=" " min="1">
+                         <label for="nb_vehicules" class="float-label">Nombre approximatif de véhicules</label>
+                    </div>
+
+                     <div class="form-group">
+                        <textarea id="marques_modeles" name="marques_modeles" placeholder=" "></textarea>
+                         <label for="marques_modeles" class="float-label">Marques ou modèles spécifiques (optionnel)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="static-label">Vos véhicules sont-ils actuellement gérés par un professionnel ?</label>
+                        <div class="choice-group">
+                            <div class="choice-item">
+                                <input type="radio" id="gestion_oui" name="gestion_actuelle" value="oui">
+                                <label for="gestion_oui">Oui</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="radio" id="gestion_non" name="gestion_actuelle" value="non">
+                                <label for="gestion_non">Non</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+
+                    <div class="form-group">
+                        <label class="static-label">Services recherchés (plusieurs choix possibles) :</label>
+                        <div class="choice-group">
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_gestion" name="services[]" value="Gestion complète">
+                                <label for="service_gestion">Gestion complète et suivi régulier</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_entretien" name="services[]" value="Entretien et maintenance">
+                                <label for="service_entretien">Entretien et maintenance par experts spécialisés</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_transport" name="services[]" value="Organisation du transport">
+                                <label for="service_transport">Organisation du transport (événements, international)</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_restauration" name="services[]" value="Suivi de restauration">
+                                <label for="service_restauration">Suivi de restauration avec artisans spécialisés</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_conseil" name="services[]" value="Conseil acquisition/vente">
+                                <label for="service_conseil">Conseil en acquisition ou vente de véhicules</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_stockage" name="services[]" value="Stockage sécurisé">
+                                <label for="service_stockage">Stockage sécurisé haut de gamme</label>
+                            </div>
+                            <div class="choice-item">
+                                <input type="checkbox" id="service_autre" name="services[]" value="Autre">
+                                <label for="service_autre">Autre (préciser dans le message)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                     <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+
+                    <div class="form-group">
+                         <label class="static-label">Préférence de contact :</label>
+                         <div class="choice-group">
+                             <div class="choice-item">
+                                 <input type="radio" id="contact_tel" name="preference_contact" value="telephone" checked>
+                                 <label for="contact_tel">Téléphone</label>
+                             </div>
+                             <div class="choice-item">
+                                 <input type="radio" id="contact_email" name="preference_contact" value="email">
+                                 <label for="contact_email">E-mail</label>
+                             </div>
+                              <div class="choice-item">
+                                 <input type="radio" id="contact_rdv" name="preference_contact" value="rdv">
+                                 <label for="contact_rdv">Rendez-vous physique</label>
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder=" "></textarea>
+                        <label for="message" class="float-label">Votre message ou demandes spécifiques</label>
+                    </div>
+
+                    <div class="form-group">
+                         <label for="documents" class="static-label">Joindre des documents (optionnel: photos, historique...)</label>
+                         <input type="file" id="documents" name="documents" accept="image/*, application/pdf, .doc, .docx, .xls, .xlsx">
+                         <!-- Limiter la taille / types côté serveur est crucial -->
+                    </div>
+
+                    <button type="submit" class="submit-button">Soumettre la demande</button>
+
+                </form>
+                <!-- Message de succès (initialement caché) -->
+                <div id="form-success-message">
+                    Merci pour votre message. Je prendrai personnellement contact avec vous rapidement pour discuter de votre projet.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Fixe -->
+    <footer class="sticky-footer">
+        <div class="footer-content">
+            MATÉO GINISTY / <a href="tel:+33123456789">+33 1 23 45 67 89</a> <!-- Mettre le vrai numéro -->
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const stickyHeader = document.querySelector('.sticky-header');
+            const servicesSection = document.getElementById('services');
+            const bgImage2 = document.querySelector('.background-image2');
+            const bgImage3 = document.querySelector('.background-image3');
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('form-success-message');
+
+            // --- Sticky Header Background ---
+            window.addEventListener('scroll', () => {
+                if (stickyHeader) {
+                    stickyHeader.classList.toggle('scrolled', window.scrollY > 50);
+                }
+            }, { passive: true });
+
+            // --- Background Image Transition ---
+            function updateBackground() {
+                // Vérifier si les éléments existent avant de faire des calculs
+                if (!servicesSection || !bgImage2 || !bgImage3) {
+                    console.warn("Background transition elements not found.");
+                    return;
+                }
+
+                const sectionTop = servicesSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                // Déclencher la transition quand le haut de la section 'services'
+                // entre dans le tiers inférieur de la fenêtre.
+                const startTransitionPoint = sectionTop - windowHeight * 0.7;
+                // Terminer la transition quand le haut de la section a dépassé
+                // le milieu de la fenêtre.
+                const endTransitionPoint = sectionTop - windowHeight * 0.4;
+
+                const scrollPosition = window.pageYOffset;
+
+                let progress = 0;
+                if (scrollPosition > startTransitionPoint) {
+                     progress = Math.min(1, Math.max(0,
+                       (scrollPosition - startTransitionPoint) / (endTransitionPoint - startTransitionPoint)
+                    ));
+                }
+
+                // Appliquer les opacités
+                bgImage3.style.opacity = progress;
+                // Faire disparaître légèrement plus vite l'image 2 pour éviter un blanc total
+                bgImage2.style.opacity = 1 - (progress * 0.9);
+            }
+
+            // Exécuter la fonction une fois au chargement et à chaque scroll
+             window.addEventListener('scroll', () => {
+                requestAnimationFrame(updateBackground);
+             }, { passive: true });
+             requestAnimationFrame(updateBackground); // Appel initial
+
+            // --- Contact Form Submission Simulation ---
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Stop actual form submission
+
+                    // --- Backend logic placeholder ---
+                    console.log('Formulaire soumis (simulation)');
+                    // Replace with actual fetch() call to your backend endpoint
+                    // fetch('/your-backend-endpoint', { method: 'POST', body: new FormData(form) })...
+
+                    // --- UI update on success ---
+                    form.style.display = 'none'; // Hide form
+                    if (successMessage) {
+                        successMessage.style.display = 'block'; // Show success message
+                        // Scroll vers le message de succès pour qu'il soit visible
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            }
+
+            // --- Placeholder Label Fix (optional, for better compatibility) ---
+            document.querySelectorAll('.form-group input[placeholder=" "], .form-group textarea[placeholder=" "]').forEach(input => {
+                const label = input.nextElementSibling;
+                if (label && label.classList.contains('float-label') && input.value) {
+                    label.style.transform = 'translateY(-1.6rem) scale(0.85)';
+                    label.style.opacity = '1';
+                    const bodyBg = window.getComputedStyle(document.body).backgroundColor || '#0a0a0a';
+                    label.style.background = bodyBg;
+                    label.style.padding = '0 4px';
+                }
+                input.addEventListener('input', (e) => {
+                     if (label && label.classList.contains('float-label')) {
+                         if (!e.target.value) {
+                             label.style.background = 'none';
+                              label.style.padding = '0 2px';
+                         } else if (!label.style.background || label.style.background === 'none') {
+                             const bodyBg = window.getComputedStyle(document.body).backgroundColor || '#0a0a0a';
+                             label.style.background = bodyBg;
+                              label.style.padding = '0 4px';
+                         }
+                     }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

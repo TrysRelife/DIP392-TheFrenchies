@@ -1,3 +1,4 @@
+/* --- Styles pour section.html --- */
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +6,25 @@
   font-family: 'Arial', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  line-height: 1.6; /* Base line-height */
+}
+
+/* --- Sticky Header --- */
 .sticky-header {
   position: fixed;
   top: 0;
+  left: 0; /* Ajouté pour couvrir toute la largeur */
   width: 100%;
   padding: 1.5rem;
   background: rgba(0,0,0,0);
-  backdrop-filter: blur(0);
+  backdrop-filter: blur(0px);
   transition: all 0.4s ease;
   z-index: 1000;
   display: flex;
@@ -31,11 +44,7 @@
   opacity: 0.9;
 }
 
-body {
-  background: #0a0a0a;
-  color: white;
-}
-
+/* --- Background Images --- */
 .background-image2,
 .background-image3 {
   position: fixed;
@@ -44,88 +53,275 @@ body {
   width: 100%;
   height: 100%;
   background-size: cover;
-  filter: brightness(0.6);
+  background-position: center; /* Centre l'image */
+  filter: brightness(0.5); /* Légèrement plus sombre */
   z-index: -1;
-  transition: opacity 1s ease;
+  transition: opacity 0.8s ease-in-out; /* Transition douce */
 }
 
-.background-image2 { background-image: url('assets/section1.jpg'); }
-.background-image3 { 
-  background-image: url('assets/section2.jpg');
-  opacity: 0;
+.background-image2 {
+  background-image: url('assets/section1.jpg'); /* Assurez-vous que ce chemin est correct */
+  opacity: 1; /* Visible par défaut */
 }
 
-.content {
+.background-image3 {
+  background-image: url('assets/section2.jpg'); /* Assurez-vous que ce chemin est correct */
+  opacity: 0; /* Cachée par défaut */
+}
+
+
+/* --- Main Content Area --- */
+.content { /* Style spécifique au conteneur de section.html */
   position: relative;
-  padding: 2rem;
-  min-height: 100vh;
+  padding: 8rem 2rem 8rem 2rem; /* Espace pour header/footer + contenu */
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem; /* Espace entre les sections */
   z-index: 1;
-  padding-bottom: 6rem;
-  box-sizing: border-box; /* Ajout important */
+  min-height: 100vh;
+  max-width: 1200px; /* Limite la largeur max du contenu */
+  margin: 0 auto; /* Centre le contenu */
 }
 
+/* --- Glass Effect Card Style --- */
 .glass {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(15, 15, 15, 0.6); /* Fond sombre semi-transparent */
+  backdrop-filter: blur(15px); /* Flou plus prononcé */
   border-radius: 10px;
-  padding: 2.5rem;
+  padding: 3rem;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centre la carte dans sa section */
   width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Ombre subtile */
 }
 
 .section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  min-height: auto; /* Plus besoin de 100vh */
+  display: flex; /* Utilise flex pour centrer .glass */
+  justify-content: center;
+  align-items: center; /* Centre verticalement si section a une hauteur min */
+  width: 100%;
 }
 
 h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   font-weight: 300;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95); /* Blanc presque pur */
 }
 
-.services-list {
+/* --- Specific Sections --- */
+#approach p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center; /* Centré dans la carte */
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#services .services-list {
   list-style: none;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7; /* Augmenté pour lisibilité */
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.services-list li {
-  padding: 1.5rem 0;
+#services .services-list li {
+  padding: 1.8rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.services-list li:last-child {
+#services .services-list li:last-child {
   border-bottom: none;
 }
 
-.services-list strong {
+#services .services-list strong {
   display: block;
-  margin: 0.5rem 0;
+  margin-bottom: 0.7rem;
   font-size: 1.3rem;
+  font-weight: 500;
+  color: white;
 }
 
-@media (max-width: 768px) {
-  .glass {
-    padding: 1.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  .content {
-    padding-bottom: 4rem;
-    gap: 2rem;
-  }
+/* --- Contact Form Styles (Identiques à la version précédente) --- */
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
 
-/* Banderolle fixe en bas */
+.form-group {
+  position: relative;
+}
+
+.form-group label.static-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.form-group input[type="file"] {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+.form-group input[type="file"]::file-selector-button {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.form-group input[type="file"]::file-selector-button:hover {
+   background: rgba(255, 255, 255, 0.3);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+}
+
+.form-group label.float-label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  background: none;
+  padding: 0 2px;
+}
+
+.form-group input:focus ~ label.float-label,
+.form-group input:not(:placeholder-shown) ~ label.float-label,
+.form-group textarea:focus ~ label.float-label,
+.form-group textarea:not(:placeholder-shown) ~ label.float-label {
+  transform: translateY(-1.6rem) scale(0.85);
+  opacity: 1;
+  color: white;
+  /* Utilise le background de .glass pour masquer la bordure */
+  background: rgba(15, 15, 15, 0.6);
+  padding: 0 4px; /* Ajuster le padding si nécessaire */
+}
+
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.choice-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.choice-item input[type="radio"],
+.choice-item input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+.choice-item label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.choice-item label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+.choice-item input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+.choice-item input:checked + label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(1);
+  transition: transform 0.2s ease;
+}
+.choice-item input[type="checkbox"]:checked + label::after {
+  left: 5px;
+  top: 40%;
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  background: none;
+  border-radius: 0;
+  transform: translateY(-50%) rotate(-45deg) scale(1);
+}
+
+.submit-button {
+  padding: 15px 40px;
+  background: white;
+  border: 1px solid white;
+  color: black;
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 2rem auto 0 auto;
+  width: fit-content;
+}
+.submit-button:hover {
+  background: transparent;
+  color: white;
+}
+#form-success-message {
+  display: none;
+  padding: 2rem;
+  margin-top: 2rem;
+  background: rgba(40, 167, 69, 0.2);
+  border: 1px solid rgba(40, 167, 69, 0.5);
+  color: #d4edda;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+/* --- Footer --- */
 .sticky-footer {
   position: fixed;
   bottom: 0;
@@ -154,112 +350,33 @@ h2 {
   opacity: 0.8;
 }
 
-/* Formulaire de contact */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.form-group {
-  position: relative;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.form-group label {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  opacity: 0.7;
-}
-
-.form-group input:focus ~ label,
-.form-group input:valid ~ label,
-.form-group textarea:focus ~ label,
-.form-group textarea:valid ~ label {
-  transform: translateY(-1.5rem);
-  font-size: 0.8rem;
-  opacity: 1;
-}
-
-/* Groupe des boutons */
-.buttons-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: auto; /* Pousse les boutons vers le bas */
-  margin-bottom: 60px; /* Espace avant le footer */
-}
-
-.cta-button {
-  padding: 15px 40px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-  backdrop-filter: blur(5px);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: textAppear 1s ease-out 1.2s forwards;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background: white;
-  color: black;
-  border-color: white;
-}
-
-@keyframes textAppear {
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-.cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,0.1),
-      transparent
-  );
-  transition: all 0.6s ease;
-}
-
-.cta-button:hover::before {
-  left: 100%;
-}
-
-/* Ajustement pour le responsive */
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .cta-button {
+   .content {
+      padding: 6rem 1rem 7rem 1rem; /* Moins de padding sur mobile */
+      gap: 3rem;
+  }
+  .glass {
+      padding: 2rem 1.5rem;
+  }
+  h2 {
+      font-size: 2rem;
+  }
+  #services .services-list li {
+      padding: 1.5rem 0;
+  }
+  #services .services-list strong {
+      font-size: 1.2rem;
+  }
+  .submit-button {
       padding: 12px 30px;
       font-size: 1rem;
+      width: 100%;
+  }
+  .sticky-header {
+      padding: 1rem; /* Moins de padding pour le header */
+  }
+  .sticky-footer {
+      padding: 10px 15px; /* Moins de padding pour le footer */
   }
 }
