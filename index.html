@@ -78,13 +78,15 @@
         <section class="section" id="contact">
             <div class="glass">
                 <h2>Discutons de votre collection</h2>
-                <form id="contact-form" class="contact-form" action="#" method="POST"> <!-- Action à définir pour le backend -->
-                    <!-- Champs du formulaire (inchangés par rapport à la version précédente) -->
+                <!-- MODIFIED FORM TAG: Added Formspree action and method -->
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xqaplkjy" method="POST">
+                    <!-- Champs du formulaire -->
                     <div class="form-group">
                         <input type="text" id="nom" name="nom" required placeholder=" ">
                         <label for="nom" class="float-label">Nom complet *</label>
                     </div>
                     <div class="form-group">
+                        <!-- Ensure name="email" for Formspree -->
                         <input type="email" id="email" name="email" required placeholder=" ">
                         <label for="email" class="float-label">Adresse e-mail *</label>
                     </div>
@@ -119,7 +121,6 @@
                     <div class="form-group">
                         <label class="static-label">Services recherchés (plusieurs choix possibles) :</label>
                         <div class="choice-group">
-                            <!-- Checkboxes (inchangées) -->
                              <div class="choice-item">
                                 <input type="checkbox" id="service_gestion" name="services[]" value="Gestion complète">
                                 <label for="service_gestion">Gestion complète et suivi régulier</label>
@@ -154,7 +155,6 @@
                     <div class="form-group">
                          <label class="static-label">Préférence de contact :</label>
                          <div class="choice-group">
-                             <!-- Radios (inchangées) -->
                               <div class="choice-item">
                                  <input type="radio" id="contact_tel" name="preference_contact" value="telephone" checked>
                                  <label for="contact_tel">Téléphone</label>
@@ -170,17 +170,24 @@
                          </div>
                     </div>
                     <div class="form-group">
+                        <!-- Ensure name="message" for Formspree -->
                         <textarea id="message" name="message" placeholder=" " rows="4"></textarea>
                         <label for="message" class="float-label">Votre message ou demandes spécifiques</label>
                     </div>
+                    <!-- REMOVED FILE UPLOAD SECTION -->
+                    <!--
                     <div class="form-group">
                          <label for="documents" class="static-label">Joindre des documents (optionnel: photos, historique...)</label>
                          <input type="file" id="documents" name="documents" accept="image/*, application/pdf, .doc, .docx, .xls, .xlsx">
                     </div>
+                    -->
                     <button type="submit" class="submit-button">Soumettre la demande</button>
                 </form>
-                <!-- Message de succès (initialement caché) -->
-                <div id="form-success-message">
+                <!-- Message de succès (initialement caché, peut être enlevé si Formspree gère la redirection) -->
+                <!-- Note: Formspree handles the success page by default. -->
+                <!-- You might want to remove this div or configure Formspree for AJAX submission -->
+                <!-- if you want to display this custom message without leaving the page. -->
+                <div id="form-success-message" style="display: none;"> <!-- Added display:none -->
                     Merci pour votre message. Je prendrai personnellement contact avec vous rapidement pour discuter de votre projet.
                 </div>
             </div>
@@ -199,13 +206,13 @@
     document.addEventListener("DOMContentLoaded", function() {
         const body = document.body;
         const mainHeader = document.getElementById('main-header');
-        const mainFooter = document.getElementById('main-footer'); // Référence au footer
+        const mainFooter = document.getElementById('main-footer');
         const mainContent = document.getElementById('main-content-area');
         const approachSection = document.getElementById('approach');
-        const servicesSection = document.getElementById('services'); // Référence section services
-        const contactSection = document.getElementById('contact');   // Référence section contact
-        const form = document.getElementById('contact-form');
-        const successMessage = document.getElementById('form-success-message');
+        const servicesSection = document.getElementById('services');
+        const contactSection = document.getElementById('contact');
+        // REMOVED: const form = document.getElementById('contact-form');
+        // REMOVED: const successMessage = document.getElementById('form-success-message');
 
         // Backgrounds
         const bgApproach = document.querySelector('.background-image-approach');
@@ -224,21 +231,17 @@
                 body.style.overflow = 'auto';
                 body.classList.add('scrolled-past-hero');
 
-                // Make header & footer visible AFTER initial scroll
                 if(mainHeader) mainHeader.classList.add('visible');
-                if(mainFooter) mainFooter.classList.add('visible'); // REND LE FOOTER VISIBLE ICI
+                if(mainFooter) mainFooter.classList.add('visible');
 
-                // Set initial background after hero
                 if (bgApproach) bgApproach.style.opacity = 1;
 
-                // Scroll to first section
                 setTimeout(() => {
                     if (approachSection) {
                         approachSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 }, 50);
 
-                // Remove initial reveal listeners
                 window.removeEventListener('wheel', revealContentOnScroll);
                 window.removeEventListener('touchstart', revealContentOnScroll);
                 window.removeEventListener('scroll', fallbackScrollHandler);
@@ -258,24 +261,19 @@
 
         // --- Background Transitions & Header Scroll ---
         function handleScrollEffects() {
-            // Header background
             if (heroScrolled && mainHeader) {
                  mainHeader.classList.toggle('scrolled', window.scrollY > 50);
             }
 
-            // Background transitions (only after hero scroll)
             if (!heroScrolled || !servicesSection || !contactSection || !bgApproach || !bgServices || !bgContact) {
-                return; // Don't run transition logic before reveal or if elements are missing
+                return;
             }
 
             const scrollY = window.pageYOffset;
             const windowHeight = window.innerHeight;
 
-            // --- Transition 1: Approach -> Services ---
             const servicesTop = servicesSection.offsetTop;
-            // Start fading when services section top is about 70% down the viewport
             const startFade1 = servicesTop - windowHeight * 0.7;
-            // Finish fading when services section top is about 40% down the viewport
             const endFade1 = servicesTop - windowHeight * 0.4;
             let progress1 = 0;
             if (scrollY > startFade1) {
@@ -284,48 +282,26 @@
             bgApproach.style.opacity = 1 - progress1;
             bgServices.style.opacity = progress1;
 
-            // --- Transition 2: Services -> Contact ---
             const contactTop = contactSection.offsetTop;
-             // Start fading when contact section top is about 70% down the viewport
             const startFade2 = contactTop - windowHeight * 0.7;
-             // Finish fading when contact section top is about 40% down the viewport
             const endFade2 = contactTop - windowHeight * 0.4;
             let progress2 = 0;
              if (scrollY > startFade2) {
                 progress2 = Math.min(1, Math.max(0, (scrollY - startFade2) / (endFade2 - startFade2)));
             }
-            // Make sure the previous transition is complete before starting the next one
             if (progress1 >= 1) {
                  bgServices.style.opacity = 1 - progress2;
                  bgContact.style.opacity = progress2;
             } else {
-                // While transitioning to services, contact background remains hidden
                 bgContact.style.opacity = 0;
             }
         }
 
-        // Attach scroll effects handler
         window.addEventListener('scroll', () => {
              requestAnimationFrame(handleScrollEffects);
         }, { passive: true });
-        // Initial call in case the page loads already scrolled (though unlikely here)
         requestAnimationFrame(handleScrollEffects);
 
-
-        // --- Contact Form Submission Simulation (inchangé) ---
-        if (form) {
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                console.log('Formulaire soumis (simulation)');
-                form.style.display = 'none';
-                if (successMessage) {
-                    successMessage.style.display = 'block';
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        }
-
-        // --- Floating Label Background Fix (inchangé) ---
         document.querySelectorAll('.form-group input[placeholder=" "], .form-group textarea[placeholder=" "]').forEach(input => {
             const label = input.closest('.form-group')?.querySelector('label.float-label');
             if (!label) return;
@@ -339,9 +315,9 @@
                     label.style.background = 'none';
                 }
             };
-            setTimeout(checkInput, 100);
+            setTimeout(checkInput, 100); // Check on load (e.g., for autofill)
             input.addEventListener('input', checkInput);
-            input.addEventListener('blur', checkInput);
+            input.addEventListener('blur', checkInput); // Check when user leaves the field
         });
 
     });
