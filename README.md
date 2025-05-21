@@ -81,4 +81,4 @@ integration.
 * Sticky Header and Footer: For persistent navigation/branding and
 contact info.
 
-https://docs.google.com/document/d/16jiV7tM-mS2LT8JuNsbfWgUGjBfWTvSNhO1BR_11lSs/edit?usp=sharing
+https://github.com/TrysRelife/DIP392-TheFrenchies/blob/main/report_software.pdf
