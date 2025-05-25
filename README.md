@@ -83,3 +83,6 @@ contact info.
 
 ## 6. Report Link
 https://github.com/TrysRelife/DIP392-TheFrenchies/blob/main/report_software.pdf
+
+## 7. Video Presentation Link
+https://www.youtube.com/watch?v=R5wnpwkHUwc
